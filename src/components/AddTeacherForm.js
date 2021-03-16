@@ -5,6 +5,7 @@ import { addNewTeacher } from "../store/teacher/actions";
 
 export default function AddTeacherForm() {
   const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
   const dispatch = useDispatch();
@@ -16,12 +17,13 @@ export default function AddTeacherForm() {
   const onSubmitCallback = e => {
     e.preventDefault();
     // dispatch action
-    const action = addNewTeacher({ name, email });
+    const action = addNewTeacher({ name, lastName, email });
     console.log(action);
     dispatch(action);
     // dispatch(addNewTeacher({ name, email }));
 
     setName("");
+    setLastName("");
     setEmail("");
   };
 
@@ -36,6 +38,17 @@ export default function AddTeacherForm() {
             value={name}
             onChange={e => {
               setName(e.target.value);
+            }}
+          />
+        </label>
+        <br />
+        <label>
+          Last Name:
+          <input
+            type="text"
+            value={lastName}
+            onChange={e => {
+              setLastName(e.target.value);
             }}
           />
         </label>

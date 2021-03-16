@@ -9,7 +9,9 @@ export default function TeachersList() {
       <ul>
         {teachers.map(teacher => (
           <li key={teacher.email}>
-            <a href={`mailto:${teacher.email}`}>{teacher.name}</a>
+            <a href={`mailto:${teacher.email}`}>
+              {teacher.name} {teacher.lastName}
+            </a>
           </li>
         ))}
       </ul>

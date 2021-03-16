@@ -3,18 +3,22 @@ const initialState = {
   allTeachers: [
     {
       name: "David",
+      lastName: "Stephenson",
       email: "david@codaisseur.com",
     },
     {
       name: "Domenico",
+      lastName: "Gemoli",
       email: "domenico@codaisseur.com",
     },
     {
       name: "Karla",
+      lastName: "Evelize",
       email: "karla@codaisseur.com",
     },
     {
       name: "Matias",
+      lastName: "Garcia",
       email: "matias@codaisseur.com",
     },
   ],

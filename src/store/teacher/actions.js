@@ -10,11 +10,12 @@
 //   };
 // };
 
-export const addNewTeacher = ({ name, email }) => {
+export const addNewTeacher = ({ name, lastName, email }) => {
   return {
     type: "teacher/addNewTeacher",
     payload: {
       name,
+      lastName,
       email,
     },
   };
