@@ -1,27 +1,8 @@
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AddTeacherForm from "./components/AddTeacherForm";
 import { deposit } from "./store/account/actions";
 import { selectAccountValue } from "./store/account/selectors";
-
-const TEACHERS = [
-  {
-    name: "David",
-    email: "david@codaisseur.com",
-  },
-  {
-    name: "Dom",
-    email: "domenico@codaisseur.com",
-  },
-  {
-    name: "Karla",
-    email: "karla@codaisseur.com",
-  },
-  {
-    name: "Matias",
-    email: "matias@codaisseur.com",
-  },
-];
+import { selectAllTeachers } from "./store/teacher/selectors";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,11 +10,7 @@ function App() {
   const balance = useSelector(selectAccountValue);
   console.log("Render in app.js", balance);
 
-  const [teachers, setTeachers] = useState(TEACHERS);
-
-  const addNewTeacher = teacher => {
-    setTeachers([...teachers, teacher]);
-  };
+  const teachers = useSelector(selectAllTeachers);
 
   return (
     <div className="App">
@@ -57,7 +34,7 @@ function App() {
           </li>
         ))}
       </ul>
-      <AddTeacherForm onFormSubmit={addNewTeacher} />
+      <AddTeacherForm />
     </div>
   );
 }

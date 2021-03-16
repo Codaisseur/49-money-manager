@@ -1,21 +1,34 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-export default function AddTeacherForm({ onFormSubmit }) {
+import { addNewTeacher } from "../store/teacher/actions";
+
+export default function AddTeacherForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  const dispatch = useDispatch();
+
+  // dispatch()
+
+  // axios.get()
+
+  const onSubmitCallback = e => {
+    e.preventDefault();
+    // dispatch action
+    const action = addNewTeacher({ name, email });
+    console.log(action);
+    dispatch(action);
+    // dispatch(addNewTeacher({ name, email }));
+
+    setName("");
+    setEmail("");
+  };
 
   return (
     <>
       <h3>Add new teacher:</h3>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          onFormSubmit({
-            name,
-            email,
-          });
-        }}
-      >
+      <form onSubmit={onSubmitCallback}>
         <label>
           Name:
           <input
